@@ -1,6 +1,8 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { fadeInUp, staggerContainer, scaleIn } from '@/lib/animations';
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);
@@ -53,7 +55,7 @@ export default function Projects() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="text-xl text-gray-600">Loading projects...</div>
+        <motion.div {...scaleIn} className="text-xl text-gray-600">Loading projects...</motion.div>
       </div>
     );
   }
@@ -63,22 +65,22 @@ export default function Projects() {
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
         <div className="container mx-auto px-6 text-center">
-          <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <motion.h1 {...fadeInUp} className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
             My Projects
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          </motion.h1>
+          <motion.p {...fadeInUp} className="text-xl text-gray-600 max-w-3xl mx-auto">
             Here are some of the projects I've worked on. Each one represents a unique 
             challenge and showcases different aspects of my development skills.
-          </p>
+          </motion.p>
         </div>
       </section>
 
       {/* Projects Grid */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          <motion.div {...staggerContainer} initial="initial" whileInView="animate" viewport={{ once: true }} className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {projects.map((project, index) => (
-              <div key={project._id} className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <motion.div key={project._id} {...scaleIn} className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <div className="relative h-64 bg-gray-200">
                   <Image
                     src={project.image || '/placeholder-project.jpg'}
@@ -127,9 +129,9 @@ export default function Projects() {
                     )}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
     </main>

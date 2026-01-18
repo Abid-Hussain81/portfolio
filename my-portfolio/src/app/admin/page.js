@@ -1,13 +1,22 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function AdminPage() {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
-    fetchMessages();
-  }, []);
+    const auth = localStorage.getItem('adminAuth');
+    if (auth === 'true') {
+      setIsAuthenticated(true);
+      fetchMessages();
+    } else {
+      router.push('/');
+    }
+  }, [router]);
 
   const fetchMessages = async () => {
     try {
@@ -23,12 +32,29 @@ export default function AdminPage() {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('adminAuth');
+    router.push('/');
+  };
+
+  if (!isAuthenticated) {
+    return <div className="p-8">Redirecting...</div>;
+  }
+
   if (loading) return <div className="p-8">Loading messages...</div>;
 
   return (
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-3xl font-bold mb-8">Contact Messages</h1>
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-3xl font-bold">Contact Messages</h1>
+          <button
+            onClick={handleLogout}
+            className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
+          >
+            Logout
+          </button>
+        </div>
         
         {messages.length === 0 ? (
           <p className="text-gray-600">No messages yet.</p>
