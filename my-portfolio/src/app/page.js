@@ -23,12 +23,13 @@ export default function Home() {
             {/* CHANGED: Text section → 8 columns on lg */}
             <div className="col-span-12 lg:col-span-8 text-center lg:text-left pl-0 lg:pl-16">
               <h1 className="text-5xl lg:text-6xl font-bold text-gray-800 mb-6">
-                Hi, I'm <span className="text-blue-600">John Developer</span>
+                Hi, I'm <span className="text-blue-600">Abid Hussain</span>
               </h1>
 
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Full-Stack Developer crafting digital experiences with modern
-                technologies
+                A modern frontend web developer focused on building clean,
+                responsive, and user-centric digital experiences using today’s
+                web technologies.
               </p>
 
               <div className="flex gap-4 justify-center lg:justify-start">
@@ -75,7 +76,7 @@ export default function Home() {
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-lg text-slate-600 leading-relaxed mb-6">
-                Passionate developer with 5+ years of experience building
+                Passionate developer with 1+ years of experience building
                 scalable web applications. I specialize in React, Next.js, and
                 Node.js, creating solutions that combine beautiful design with
                 robust functionality.
@@ -91,8 +92,8 @@ export default function Home() {
                 Quick Facts
               </h3>
               <ul className="space-y-2 text-slate-600">
-                <li>🎓 Computer Science Graduate</li>
-                <li>💼 5+ Years Experience</li>
+                <li>🎓 BS Information Technology</li>
+                <li>💼 1+ Years Experience</li>
                 <li>🌍 Remote Work Enthusiast</li>
                 <li>☕ Coffee Powered Developer</li>
               </ul>
@@ -110,25 +111,18 @@ export default function Home() {
           <div className="max-w-4xl mx-auto space-y-8">
             {[
               {
-                title: "Senior Full-Stack Developer",
-                company: "Tech Solutions Inc.",
-                period: "2022 - Present",
+                title: "frontend Web Development intern",
+                company: "Code Cesium",
+                period: "Sept 2024 - Dec 2024",
                 description:
-                  "Lead development of enterprise web applications using React, Node.js, and AWS.",
+                  "Developed responsive and user-friendly web interfaces using HTML, CSS, and JavaScript. Collaborated with the team to implement UI components, improve website performance, and ensure cross-browser compatibility.",
               },
               {
                 title: "Frontend Developer",
-                company: "Digital Agency Co.",
-                period: "2020 - 2022",
+                company: "The Mind Gauge",
+                period: "2025 - present",
                 description:
-                  "Built responsive websites and web applications for diverse clients using modern frameworks.",
-              },
-              {
-                title: "Junior Developer",
-                company: "StartUp Ventures",
-                period: "2019 - 2020",
-                description:
-                  "Developed and maintained web applications while learning industry best practices.",
+                  "Handled end-to-end frontend development responsibilities, delivering responsive and high-quality web interfaces while coordinating with the team to meet project requirements and deadlines.",
               },
             ].map((job, index) => (
               <div key={index} className="bg-white rounded-lg p-6 shadow-sm">
@@ -161,7 +155,7 @@ export default function Home() {
                   Frontend
                 </h3>
                 <div className="grid grid-cols-2 gap-3">
-                  {["React", "Next.js", "TypeScript", "Tailwind CSS"].map(
+                  {["React", "Next.js", "Bootstrap", "Tailwind CSS"].map(
                     (skill) => (
                       <div
                         key={skill}
@@ -180,18 +174,16 @@ export default function Home() {
                   Backend
                 </h3>
                 <div className="grid grid-cols-2 gap-3">
-                  {["Node.js", "Express", "MongoDB", "PostgreSQL"].map(
-                    (skill) => (
-                      <div
-                        key={skill}
-                        className="bg-slate-50 p-3 rounded-lg text-center"
-                      >
-                        <span className="text-slate-700 font-medium">
-                          {skill}
-                        </span>
-                      </div>
-                    ),
-                  )}
+                  {["Node.js", "Express", "MySQL", "MongoDB"].map((skill) => (
+                    <div
+                      key={skill}
+                      className="bg-slate-50 p-3 rounded-lg text-center"
+                    >
+                      <span className="text-slate-700 font-medium">
+                        {skill}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
               <div>
@@ -199,7 +191,14 @@ export default function Home() {
                   Tools & Others
                 </h3>
                 <div className="grid grid-cols-2 gap-3">
-                  {["Git", "AWS", "Docker", "Figma"].map((skill) => (
+                  {[
+                    "VS Code",
+                    "GIT",
+                    "Figma",
+                    "Slack",
+                    "Canva",
+                    "AI Tools",
+                  ].map((skill) => (
                     <div
                       key={skill}
                       className="bg-slate-50 p-3 rounded-lg text-center"
@@ -327,41 +326,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">
-            What Clients Say
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {[
-              {
-                text: "John delivered an exceptional web application that exceeded our expectations. His attention to detail and technical expertise made the entire process smooth.",
-                author: "Sarah Johnson",
-                role: "CEO, TechStart",
-              },
-              {
-                text: "Working with John was a pleasure. He understood our requirements perfectly and delivered a scalable solution on time and within budget.",
-                author: "Mike Chen",
-                role: "CTO, InnovateCorp",
-              },
-            ].map((testimonial, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 shadow-sm">
-                <p className="text-slate-600 italic mb-4">
-                  "{testimonial.text}"
-                </p>
-                <div>
-                  <p className="font-semibold text-slate-800">
-                    {testimonial.author}
-                  </p>
-                  <p className="text-slate-500 text-sm">{testimonial.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Contact Section */}
       <section className="bg-white py-16">
         <div className="container mx-auto px-6 text-center">
@@ -381,17 +345,19 @@ export default function Home() {
           ) : (
             <div>
               <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
-                Ready to work together? Let's discuss your next project and
-                bring your ideas to life.
+                Looking for a developer who can take your idea from concept to
+                delivery? Let’s work together to build scalable, visually clean,
+                and performance-driven web experiences.
               </p>
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
                 <div className="flex items-center gap-2 text-slate-600">
                   <span>📧</span>
-                  <span>john@example.com</span>
+                  <span>dev.abidhussain@gmail.com</span>
                 </div>
                 <div className="flex items-center gap-2 text-slate-600">
                   <span>📱</span>
-                  <span>+1 (555) 123-4567</span>
+                  <span>+92 3078057494</span>
                 </div>
               </div>
               <button
